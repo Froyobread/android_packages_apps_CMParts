@@ -54,9 +54,9 @@ public class UIActivity extends PreferenceActivity implements OnPreferenceChange
 
     private static final String POWER_PROMPT_PREF = "power_dialog_prompt";
 
-    private static final String OVERSCROLL_PREF = "pref_overscroll_effect";
+    ///private static final String OVERSCROLL_PREF = "pref_overscroll_effect";
 
-    private static final String OVERSCROLL_WEIGHT_PREF = "pref_overscroll_weight";
+    ///private static final String OVERSCROLL_WEIGHT_PREF = "pref_overscroll_weight";
 
     private CheckBoxPreference mPinchReflowPref;
 
@@ -72,9 +72,9 @@ public class UIActivity extends PreferenceActivity implements OnPreferenceChange
 
     private PreferenceScreen mPowerPicker;
 
-    private ListPreference mOverscrollPref;
+    /*private ListPreference mOverscrollPref;
 
-    private ListPreference mOverscrollWeightPref;
+    private ListPreference mOverscrollWeightPref;*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -120,7 +120,7 @@ public class UIActivity extends PreferenceActivity implements OnPreferenceChange
                 Settings.System.EXPANDED_HIDE_ONCHANGE, 0) == 1));
 
         /* Overscroll Effect */
-        mOverscrollPref = (ListPreference) prefSet.findPreference(OVERSCROLL_PREF);
+        /*mOverscrollPref = (ListPreference) prefSet.findPreference(OVERSCROLL_PREF);
         int overscrollEffect = Settings.System.getInt(getContentResolver(),
                 Settings.System.OVERSCROLL_EFFECT, 1);
         mOverscrollPref.setValue(String.valueOf(overscrollEffect));
@@ -130,7 +130,7 @@ public class UIActivity extends PreferenceActivity implements OnPreferenceChange
         int overscrollWeight = Settings.System.getInt(getContentResolver(),
                 Settings.System.OVERSCROLL_WEIGHT, 5);
         mOverscrollWeightPref.setValue(String.valueOf(overscrollWeight));
-        mOverscrollWeightPref.setOnPreferenceChangeListener(this);
+        mOverscrollWeightPref.setOnPreferenceChangeListener(this);*/
 
     }
 
@@ -191,7 +191,7 @@ public class UIActivity extends PreferenceActivity implements OnPreferenceChange
         if (preference == mRenderEffectPref) {
             writeRenderEffect(Integer.valueOf((String) newValue));
             return true;
-        } else if (preference == mOverscrollPref) {
+        } /*else if (preference == mOverscrollPref) {
             int overscrollEffect = Integer.valueOf((String) newValue);
             Settings.System.putInt(getContentResolver(), Settings.System.OVERSCROLL_EFFECT,
                     overscrollEffect);
@@ -201,7 +201,7 @@ public class UIActivity extends PreferenceActivity implements OnPreferenceChange
             Settings.System.putInt(getContentResolver(), Settings.System.OVERSCROLL_WEIGHT,
                     overscrollWeight);
             return true;
-        }
+        }*/
         return false;
     }
 

@@ -27,18 +27,18 @@ public class DisplayActivity extends PreferenceActivity implements OnPreferenceC
 
     private static final String GENERAL_CATEGORY = "general_category";
 
-    private static final String ELECTRON_BEAM_ANIMATION_ON = "electron_beam_animation_on";
+//    private static final String ELECTRON_BEAM_ANIMATION_ON = "electron_beam_animation_on";
 
-    private static final String ELECTRON_BEAM_ANIMATION_OFF = "electron_beam_animation_off";
+//    private static final String ELECTRON_BEAM_ANIMATION_OFF = "electron_beam_animation_off";
 
     private PreferenceScreen mBacklightScreen;
 
     /* Other */
     private static final String ROTATE_180_PREF = "pref_rotate_180";
 
-    private CheckBoxPreference mElectronBeamAnimationOn;
+//    private CheckBoxPreference mElectronBeamAnimationOn;
 
-    private CheckBoxPreference mElectronBeamAnimationOff;
+//    private CheckBoxPreference mElectronBeamAnimationOff;
 
     private CheckBoxPreference mRotate180Pref;
 
@@ -60,27 +60,27 @@ public class DisplayActivity extends PreferenceActivity implements OnPreferenceC
         }
 
         /* Electron Beam control */
-        boolean animateScreenLights = getResources().getBoolean(
-                com.android.internal.R.bool.config_animateScreenLights);
-        mElectronBeamAnimationOn = (CheckBoxPreference)prefSet.findPreference(ELECTRON_BEAM_ANIMATION_ON);
+        /*boolean animateScreenLights = getResources().getBoolean(
+                com.android.internal.R.bool.config_animateScreenLights);*/
+        /*mElectronBeamAnimationOn = (CheckBoxPreference)prefSet.findPreference(ELECTRON_BEAM_ANIMATION_ON);
         mElectronBeamAnimationOn.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.ELECTRON_BEAM_ANIMATION_ON,
                 getResources().getBoolean(com.android.internal.R.bool.config_enableScreenOnAnimation) ? 1 : 0) == 1);
         mElectronBeamAnimationOff = (CheckBoxPreference)prefSet.findPreference(ELECTRON_BEAM_ANIMATION_OFF);
         mElectronBeamAnimationOff.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.ELECTRON_BEAM_ANIMATION_OFF,
-                getResources().getBoolean(com.android.internal.R.bool.config_enableScreenOffAnimation) ? 1 : 0) == 1);
+                getResources().getBoolean(com.android.internal.R.bool.config_enableScreenOffAnimation) ? 1 : 0) == 1);*/
 
         /* Hide Electron Beam controls if electron beam is disabled */
-        if (animateScreenLights) {
+        /*if (animateScreenLights) {
             prefSet.removePreference(mElectronBeamAnimationOn);
             prefSet.removePreference(mElectronBeamAnimationOff);
-        }
+        }*/
 
         /* Rotate 180 */
-        mRotate180Pref = (CheckBoxPreference) prefSet.findPreference(ROTATE_180_PREF);
+        /*mRotate180Pref = (CheckBoxPreference) prefSet.findPreference(ROTATE_180_PREF);
         mRotate180Pref.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.ACCELEROMETER_ROTATE_180, 0) == 1);
+                Settings.System.ACCELEROMETER_ROTATE_180, 0) == 1);*/
     }
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -90,7 +90,7 @@ public class DisplayActivity extends PreferenceActivity implements OnPreferenceC
         if (preference == mBacklightScreen) {
             startActivity(mBacklightScreen.getIntent());
         }
-        if (preference == mElectronBeamAnimationOn) {
+        /*if (preference == mElectronBeamAnimationOn) {
             value = mElectronBeamAnimationOn.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ELECTRON_BEAM_ANIMATION_ON, value ? 1 : 0);
@@ -106,7 +106,7 @@ public class DisplayActivity extends PreferenceActivity implements OnPreferenceC
             value = mRotate180Pref.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ACCELEROMETER_ROTATE_180, value ? 1 : 0);
-        }
+        }*/
 
         return true;
     }
